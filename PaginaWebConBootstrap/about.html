@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Mi Empresa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><polygon fill="%23764ba2" points="0,600 1200,400 1200,600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #007bff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #007bff;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -16px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .team-member {
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #007bff;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .testimonial-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: #007bff;
+            opacity: 0.3;
+        }
+        
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-building"></i> Mi Empresa
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-3 fw-bold mb-4">Conoce Nuestra Historia</h1>
+                    <p class="lead fs-4 mb-4">Somos una empresa innovadora dedicada a crear soluciones tecnológicas que transforman negocios y mejoran vidas</p>
+                    <a href="#historia" class="btn btn-light btn-lg me-3">
+                        <i class="bi bi-arrow-down"></i> Descubre Más
+                    </a>
+                    <a href="#equipo" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-people"></i> Nuestro Equipo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-counter" data-target="15">0</div>
+                    <h5>Años de Experiencia</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-counter" data-target="500">0</div>
+                    <h5>Proyectos Completados</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-counter" data-target="150">0</div>
+                    <h5>Clientes Satisfechos</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-counter" data-target="50">0</div>
+                    <h5>Empleados</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia de la Empresa -->
+    <section id="historia" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 section-title mb-4">Nuestra Historia</h2>
+                    <p class="lead text-muted">Un viaje de innovación y crecimiento</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2010 - Los Inicios</h3>
+                        <p>Fundamos la empresa con una visión clara: democratizar la tecnología y hacerla accesible para todos. Comenzamos con un pequeño equipo de 3 personas trabajando desde un garaje.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2013 - Primer Gran Cliente</h3>
+                        <p>Conseguimos nuestro primer contrato importante con una empresa multinacional, lo que nos permitió expandir nuestro equipo y mejorar nuestros procesos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2016 - Expansión Internacional</h3>
+                        <p>Abrimos nuestras puertas al mercado internacional, estableciendo partnerships en 5 países de Latinoamérica y comenzando proyectos globales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2019 - Innovación y Crecimiento</h3>
+                        <p>Lanzamos nuestra división de Inteligencia Artificial y Machine Learning, posicionándonos como líderes en tecnologías emergentes.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2022 - Certificaciones</h3>
+                        <p>Obtuvimos certificaciones ISO 9001 y 27001, además de convertirnos en partners oficiales de las principales plataformas cloud del mercado.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2025 - El Futuro</h3>
+                        <p>Continuamos innovando y expandiéndonos, con proyectos de transformación digital que impactan positivamente a miles de usuarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión, Visión y Valores -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 section-title mb-4">Nuestros Valores</h2>
+                    <p class="lead text-muted">Los pilares que guían nuestro trabajo diario</p>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <div class="value-icon bg-primary">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h3>Misión</h3>
+                        <p class="text-muted">Crear soluciones tecnológicas innovadoras que impulsen el crecimiento de nuestros clientes y contribuyan al desarrollo sostenible de la sociedad.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <div class="value-icon bg-success">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <h3>Visión</h3>
+                        <p class="text-muted">Ser la empresa líder en transformación digital en Latinoamérica, reconocida por nuestra excelencia, innovación y compromiso con el cliente.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <div class="value-icon bg-warning">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3>Valores</h3>
+                        <p class="text-muted">Integridad, innovación, excelencia, colaboración y responsabilidad social son los valores que nos definen y nos impulsan cada día.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card text-center border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-shield-check display-4 text-primary mb-3"></i>
+                            <h5>Integridad</h5>
+                            <p class="text-muted">Actuamos con honestidad y transparencia en todas nuestras relaciones.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card text-center border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-rocket display-4 text-success mb-3"></i>
+                            <h5>Innovación</h5>
+                            <p class="text-muted">Buscamos constantemente nuevas formas de mejorar y evolucionar.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card text-center border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-award display-4 text-warning mb-3"></i>
+                            <h5>Excelencia</h5>
+                            <p class="text-muted">Nos comprometemos a entregar siempre la más alta calidad.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card text-center border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-people display-4 text-info mb-3"></i>
+                            <h5>Colaboración</h5>
+                            <p class="text-muted">Trabajamos en equipo para lograr objetivos comunes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestro Equipo -->
+    <section id="equipo" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 section-title mb-4">Nuestro Equipo</h2>
+                    <p class="lead text-muted">Conoce a las personas que hacen posible nuestra misión</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-primary d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>Ana García</h4>
+                            <p class="text-primary fw-bold">CEO & Fundadora</p>
+                            <p class="text-muted">Líder visionaria con más de 15 años de experiencia en tecnología e innovación. Apasionada por crear soluciones que impacten positivamente en la sociedad.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-success d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>Carlos Rodríguez</h4>
+                            <p class="text-success fw-bold">CTO</p>
+                            <p class="text-muted">Experto en arquitectura de software y tecnologías emergentes. Responsable de la estrategia tecnológica y la innovación en nuestros productos.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-success btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm me-2">
+                                    <i class="bi bi-github"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-warning d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>María López</h4>
+                            <p class="text-warning fw-bold">Directora de Diseño</p>
+                            <p class="text-muted">Creativa excepcional con un ojo único para el diseño UX/UI. Lidera nuestro equipo de diseño para crear experiencias digitales memorables.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-warning btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-warning btn-sm me-2">
+                                    <i class="bi bi-behance"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-warning btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-info d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>Roberto Silva</h4>
+                            <p class="text-info fw-bold">Director Comercial</p>
+                            <p class="text-muted">Estratega comercial con amplia experiencia en desarrollo de negocios. Responsable de nuestras relaciones con clientes y crecimiento comercial.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-info btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-info btn-sm me-2">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-info btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-danger d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>Laura Martín</h4>
+                            <p class="text-danger fw-bold">Directora de RRHH</p>
+                            <p class="text-muted">Especialista en gestión del talento humano. Se encarga de crear un ambiente de trabajo positivo y del desarrollo profesional de nuestro equipo.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-danger btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm me-2">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="team-member text-center">
+                        <div class="mb-4">
+                            <div class="team-img mx-auto mb-3 bg-secondary d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person text-white" style="font-size: 4rem;"></i>
+                            </div>
+                            <h4>Diego Fernández</h4>
+                            <p class="text-secondary fw-bold">Jefe de Proyectos</p>
+                            <p class="text-muted">Project Manager certificado con experiencia en metodologías ágiles. Garantiza que todos nuestros proyectos se entreguen a tiempo y con calidad.</p>
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-secondary btn-sm me-2">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm me-2">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 section-title mb-4">Lo Que Dicen Nuestros Clientes</h2>
+                    <p class="lead text-muted">La opinión de quienes confían en nosotros</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="card-text">"Trabajar con esta empresa ha sido una experiencia excepcional. Su profesionalismo y dedicación superaron nuestras expectativas en cada proyecto."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-person text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Ana Rodríguez</h6>
+                                    <small class="text-muted">CEO, TechCorp</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="card-text">"La innovación y creatividad de su equipo nos ayudó a transformar completamente nuestros procesos digitales. Resultados extraordinarios."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-success rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-person text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Miguel Santos</h6>
+                                    <small class="text-muted">Director, InnovaPlus</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="card-text">"Soporte técnico excepcional y entrega puntual. Sin duda, son nuestros partners tecnológicos de confianza para todos los proyectos futuros."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-warning rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-person text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Carmen Díaz</h6>
+                                    <small class="text-muted">Gerente, GlobalSoft</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="display-5 mb-4">¿Listo para trabajar con nosotros?</h2>
+                    <p class="lead mb-4">Únete a los cientos de empresas que ya confían en nuestro expertise para transformar sus negocios</p>
+                    <a href="#contacto" class="btn btn-light btn-lg me-3">
+                        <i class="bi bi-envelope"></i> Contáctanos
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-telephone"></i> Llámanos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="bi bi-building"></i> Mi Empresa</h5>
+                    <p class="text-muted">Transformando negocios a través de la innovación tecnológica desde 2010.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-white me-
